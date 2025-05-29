@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>請稍候...</title>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get("userId");
+    const ts = Number(urlParams.get("ts"));
+    const now = Date.now();
+    const hoursDiff = (now - ts) / (1000 * 60 * 60);
+
+    if (!userId || isNaN(ts)) {
+      document.body.innerHTML = "<p>⚠️ 錯誤：參數不完整或無效</p>";
+    } else if (hoursDiff > 48) {
+      document.body.innerHTML = "<p>⏰ 表單已過期，請點選 LINE 中的「我要下單」按鈕以取得最新連結 🙏</p>";
+    } else {
+      const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSddyqFe5Uso9yAuDQ1HMVLQvqBZPErNbz7JivyulOLhcDf6Lw/viewform` +
+        `?entry.1960772827=${encodeURIComponent(userId)}` +
+        `&entry.1962817614=${ts}`;
+      window.location.replace(formUrl);
+    }
+  </script>
+</head>
+<body>
+  <p>🚚 正在為您開啟訂購表單，請稍候...</p>
+</body>
+</html>
