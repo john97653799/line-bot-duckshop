@@ -11,6 +11,35 @@
       padding-top: 60px;
       font-size: 18px;
     }
+    .expired {
+      max-width: 90%;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    .expired h2 {
+      font-size: 22px;
+      margin-bottom: 1rem;
+    }
+    .expired p {
+      line-height: 1.6;
+      margin: 0.2rem 0;
+    }
+    .btn-refresh {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.25rem;
+      font-size: 16px;
+      color: white;
+      background-color: #22c55e;
+      border: none;
+      border-radius: 0.5rem;
+      text-decoration: none;
+    }
+    .footer {
+      margin-top: 2rem;
+      font-size: 14px;
+      color: #888;
+    }
   </style>
 </head>
 <body>
@@ -23,9 +52,18 @@
     const hoursDiff = (now - ts) / (1000 * 60 * 60);
 
     if (!userId || isNaN(ts)) {
-      document.body.innerHTML = "<p>⚠️ 參數錯誤，請重新點選 LINE 中的「我要下單」</p>";
+      document.body.innerHTML = `<p>⚠️ 參數錯誤，請重新點選 LINE 中的「我要下單」</p>`;
     } else if (hoursDiff > 48) {
-      document.body.innerHTML = "<p>⚠️ 表單已過期，請點選 LINE 中圖文選單的「我要下單」按鈕或是輸入「我要下單」以取得最新連結 🙏</p>";
+      document.body.innerHTML = `
+        <div class="expired">
+          <h2>⚠️ 表單連結已過期</h2>
+          <p>請回到 LINE</p>
+          <p>點選圖文選單中的「📦 我要下單」，</p>
+          <p>或直接輸入「我要下單」以取得最新表單連結 🙏</p>
+          <a href="https://line.me/R/" class="btn-refresh">🔄 重新取得表單</a>
+          <div class="footer">新港鴨肉焿｜LINE 私訊我們</div>
+        </div>
+      `;
     } else {
       const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSddyqFe5Uso9yAuDQ1HMVLQvqBZPErNbz7JivyulOLhcDf6Lw/viewform` +
         `?entry.1960772827=${encodeURIComponent(userId)}` +
