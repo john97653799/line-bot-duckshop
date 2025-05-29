@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <title>請稍候...</title>
+  <title>啟動中...</title>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const userId = urlParams.get("userId");
@@ -15,9 +15,9 @@
     } else if (hoursDiff > 48) {
       document.body.innerHTML = "<p>⏰ 表單已過期，請點選 LINE 中的「我要下單」按鈕以取得最新連結 🙏</p>";
     } else {
-      const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSddyqFe5Uso9yAuDQ1HMVLQvqBZPErNbz7JivyulOLhcDf6Lw/viewform` +
-        `?entry.1960772827=${encodeURIComponent(userId)}` +
-        `&entry.1962817614=${ts}`;
+      const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSddyqFe5Uso9yAuDQ1HMVLQvqBZPErNbz7JivyU0LhcbDf6Lw/viewform` +
+                      `?entry.1960772827=${encodeURIComponent(userId)}` +
+                      `&entry.1962817614=${ts}`;
       window.location.href = formUrl;
     }
   </script>
