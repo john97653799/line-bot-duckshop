@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>載入中...</title>
+  <title>🔁 開啟表單中...</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
@@ -14,7 +14,7 @@
   </style>
 </head>
 <body>
-  <p>🚚 正在為您開啟訂購表單，請稍候...</p>
+  <p>🚛 正在為您開啟訂購表單，請稍候...</p>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const userId = urlParams.get("userId");
@@ -25,10 +25,9 @@
     if (!userId || isNaN(ts)) {
       document.body.innerHTML = "<p>⚠️ 參數錯誤，請重新點選 LINE 中的「我要下單」</p>";
     } else if (hoursDiff > 48) {
-      document.body.innerHTML = "<p>📅 表單已過期，請點選 LINE 中的「我要下單」按鈕以取得最新連結 🙏</p>";
+      document.body.innerHTML = "<p>⚠️ 表單已過期，請點選 LINE 中的「我要下單」按鈕以取得最新連結 🙏</p>";
     } else {
-      // ✅ 前往 Google 表單（直接進入行動版）
-      const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSddyqFe5Uso9yAuDQ1HMVLQvqBZPErNbz7JivyU0LhcbDf6Lw/viewform` +
+      const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSddyqFe5Uso9yAuDQ1HMVLQvqBZPErNbz7JivyulOLhcDf6Lw/viewform` +
         `?entry.1960772827=${encodeURIComponent(userId)}` +
         `&entry.1962817614=${ts}`;
       window.location.href = formUrl;
